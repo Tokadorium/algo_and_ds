@@ -27,7 +27,7 @@ void Doubly_Linked_List::print_list() const
         return;
     }
 
-    while(current->next)
+    while(current)
     {
         std::cout << current->data << " ";
 
@@ -159,4 +159,9 @@ void Doubly_Linked_List::remove_node(const int position)
         delete current;
         return;
     }
+}
+
+int Doubly_Linked_List::get_element(const int position) const
+{
+    return return_node(position)->data;
 }

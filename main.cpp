@@ -17,4 +17,18 @@ int main()
     }
 
     list.print_list();
+
+    int e_number = 4;
+
+    std::cout << "Element: " << e_number <<
+                " Data: " << list.get_element(e_number)
+                << std::endl;
+
+    list.remove_node(3);
+
+    std::cout << "Element: " << e_number <<
+                " Data: " << list.get_element(e_number)
+                << std::endl;
+
+    list.print_list();
 }
