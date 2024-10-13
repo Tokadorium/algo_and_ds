@@ -161,7 +161,15 @@ void Doubly_Linked_List::remove_node(const int position)
     }
 }
 
-int Doubly_Linked_List::get_element(const int position) const
+int* Doubly_Linked_List::get_element(const int position) const
 {
-    return return_node(position)->data;
+    node* value{return_node(position)};
+    
+    if(!value)
+    {
+        std::cerr << "Element doesn't exist." << std::endl;
+        return nullptr;
+    }
+
+    return &value->data;
 }

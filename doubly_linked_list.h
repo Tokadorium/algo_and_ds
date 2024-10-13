@@ -22,7 +22,7 @@ class Doubly_Linked_List
         int get_size() const;
         int* add_node(const int data, const int position);
         void remove_node(const int position);
-		int get_element(const int position) const;
+		int* get_element(const int position) const;
 };
 
 #endif // DOUBLY_LINKED_LIST_H
