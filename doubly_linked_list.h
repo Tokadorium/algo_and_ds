@@ -17,7 +17,7 @@ class Doubly_Linked_List
         Doubly_Linked_List();
         ~Doubly_Linked_List();
 
-        void print_list() const;
+        void print() const;
         node* return_node(int position = -1) const;
         int get_size() const;
         int* add_node(const int data, const int position);

@@ -17,7 +17,7 @@ Doubly_Linked_List::~Doubly_Linked_List()
     delete current;
 }
 
-void Doubly_Linked_List::print_list() const
+void Doubly_Linked_List::print() const
 {
     node* current{m_head};
 
