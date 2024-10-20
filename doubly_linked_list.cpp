@@ -8,13 +8,11 @@ Doubly_Linked_List::~Doubly_Linked_List()
 {
     node* current{m_head};
 
-    while(current->next)
+    while(current)
     {
         current = current->next;
         delete current->prev;
     }
-
-    delete current;
 }
 
 void Doubly_Linked_List::print() const
@@ -139,9 +137,9 @@ void Doubly_Linked_List::remove_node(const int position)
         delete m_head;
         return;
     }
-    else if(position == get_size())
+    else if(position == get_size() - 1)
     {
-        return_node(get_size() - 1)->next = nullptr;
+        return_node(get_size() - 2)->next = nullptr;
         delete return_node();
         return;
     }

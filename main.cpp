@@ -1,12 +1,27 @@
 #include <iostream>
-#include "doubly_linked_list_test.cpp"
-#include "stack_test.cpp"
-
-const int SIZE{10};
+#include "stack.h"
 
 int main()
 {
-    // doubly_linked_list_test(SIZE);
+    Stack stack;
 
-    stack_test(SIZE);
+    stack.print();
+
+    for(int i = 0; i < 10; i++)
+    {
+        stack.push(i);
+    }
+
+    stack.print();
+    std::cout << "Size: " << stack.get_size() << std::endl;
+
+    stack.pop();
+
+    stack.print();
+    std::cout << "Size: " << stack.get_size() << std::endl;
+
+    stack.pop();
+
+    stack.print();
+    std::cout << "Size: " << stack.get_size() << std::endl;
 }

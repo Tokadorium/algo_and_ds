@@ -13,6 +13,8 @@ class Stack : public Doubly_Linked_List
         ~Stack();
         int* push(const int data);
         void pop();
+        void print();
+        using Doubly_Linked_List::get_size; // Temp access
 };
 
 #endif // STACK_H

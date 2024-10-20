@@ -1,3 +1,4 @@
+#include <iostream>
 #include "stack.h"
 
 Stack::Stack() : Doubly_Linked_List(), m_last(nullptr) {};
@@ -10,5 +11,13 @@ int* Stack::push(const int data)
 
 void Stack::pop()
 {
-    remove_node(get_size());
+    std::cout << "Popped value: " << return_node()->data
+            << " from position: " << get_size() - 1 << std::endl;
+
+    remove_node(get_size() - 1);
+}
+
+void Stack::print()
+{
+    Doubly_Linked_List::print();
 }
