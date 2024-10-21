@@ -1,37 +1,72 @@
 #include <iostream>
 #include "doubly_linked_list.h"
 
-Doubly_linked_list::Doubly_linked_list()
-{
-	m_head = nullptr;
-}
-Doubly_linked_list::~Doubly_linked_list()
-{
-	node* current{m_head};
+Doubly_linked_list::Doubly_linked_list() {m_head = nullptr;}
 
-	while(current->next)
-	{
-		current = current->next;
-		delete current->prev;
-	}
-	delete current;
-}
+Doubly_linked_list::~Doubly_linked_list() {
 
-void Doubly_linked_list::print() const
-{
-	node* current{m_head};
+	if(m_head) {
 
-	while(current->next)
-	{
-		std::cout << current->data << " ";
-		current = current->next;
+		node* current {m_head};
+
+		while(current->next) {
+
+			current = current->next;
+			delete current->prev;
+		}
+
+		delete current;
 	}
 }
 
+void Doubly_linked_list::print() const {
 
-int Doubly_linked_list::get_number_of_elements() const;
-int Doubly_linked_list::get_value(const int position) const;
-node* Doubly_linked_list::get_node_ptr(const int position) const;
+	if(m_head) {
+
+
+	}
+}
+
+
+int Doubly_linked_list::get_size() const {
+
+	if(m_head) {
+
+		int size {1};
+		node* current {m_head};
+
+		while(current->next) {
+
+			current = current->next;
+			size++;
+		}
+
+		return size;
+
+	} else {return 0;}
+}
+
+int* Doubly_linked_list::get_value(const int position) const {
+
+	if(m_head) {
+
+		node* current {m_head};
+
+		for(int i = 0; i < position; i++) {
+
+			if(!current->next) {return nullptr;}
+
+			current = current->next;
+		}
+
+		return &current->data;
+
+	} else {return nullptr;}
+}
+
+node* Doubly_linked_list::get_node(const int position) const;
+node* Doubly_linked_list::get_last_node() const;
+		
 int* Doubly_linked_list::add_node_head(const int data);
 int* Doubly_linked_list::add_node_tail(const int data);
 int* Doubly_linked_list::add_node(const int data);
