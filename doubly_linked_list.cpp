@@ -151,7 +151,19 @@ int* Doubly_linked_list::add_node(const int position, const int data) {
 
 void Doubly_linked_list::remove_node_head() {
 
-	if(m_head) {
+	if(m_head->next) {
+
+		node* new_head;
+
+		new_head = m_head->next;
+		new_head->prev = nullptr;
+
+		delete m_head;
+
+		m_head = new_head;
+	
+	} else if(m_head) {
+
 		delete m_head;
 		m_head = nullptr;
 	}
