@@ -123,7 +123,67 @@ int* Doubly_linked_list::add_node_tail(const int data) {
 	} else {return nullptr;}
 }
 		
-int* Doubly_linked_list::add_node(const int position, const int data);
-void Doubly_linked_list::remove_node_head();
-void Doubly_linked_list::remove_node_tail();
-void Doubly_linked_list::remove_node();
+int* Doubly_linked_list::add_node(const int position, const int data) {
+
+	if(position == 0) {return add_node_head(data);}
+
+	else if(position == get_size() - 1) {return add_node_tail(data);}
+
+	else {
+
+		node* current;
+		node* new_node;
+
+		current = get_node(position);
+
+		new_node = new node;
+
+		current->next->prev = new_node;
+		current->next = new_node;
+		
+		new_node->prev = current;
+		new_node->data = data;
+		new_node->next = current->next;	
+
+		return &new_node->data;
+	}
+}
+
+void Doubly_linked_list::remove_node_head() {
+
+	if(m_head) {
+		delete m_head;
+		m_head = nullptr;
+	}
+}
+
+void Doubly_linked_list::remove_node_tail() {
+
+	if(m_head) {
+		node* new_last_node;
+		new_last_node = get_node(get_size() - 2);
+
+		delete get_node_tail();
+
+		new_last_node->next = nullptr;
+	}
+}
+
+void Doubly_linked_list::remove_node(const int position) {
+
+	if(position == 0) {remove_node_head();}
+
+	else if(position == get_size() - 1) {remove_node_tail();}
+
+	else {
+		
+		node* current;
+
+		current = get_node(position);
+
+		current->prev->next = current->next;
+		current->next->prev = current->prev;
+
+		delete current;
+	}
+}
