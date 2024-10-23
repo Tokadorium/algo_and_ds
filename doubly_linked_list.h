@@ -10,6 +10,7 @@ struct node {
 class Doubly_linked_list {
 
 	private:
+
 		node* m_head;
 
 		node* get_node(const int position) const;
@@ -21,7 +22,8 @@ class Doubly_linked_list {
 		void remove_node_head();
 		void remove_node_tail();
 
-	protected:
+	public:
+
 		Doubly_linked_list();
 		~Doubly_linked_list();
 

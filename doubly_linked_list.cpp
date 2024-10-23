@@ -30,6 +30,8 @@ void Doubly_linked_list::print() const {
 			std::cout << current->data << " ";
 			current = current->next;
 		}
+
+		std::cout << std::endl;
 	}
 }
 
@@ -127,7 +129,7 @@ int* Doubly_linked_list::add_node(const int position, const int data) {
 
 	if(position == 0) {return add_node_head(data);}
 
-	else if(position == get_size() - 1) {return add_node_tail(data);}
+	else if(position == get_size()) {return add_node_tail(data);}
 
 	else {
 
@@ -173,7 +175,7 @@ void Doubly_linked_list::remove_node_tail() {
 
 	if(m_head) {
 		node* new_last_node;
-		new_last_node = get_node(get_size() - 2);
+		new_last_node = get_node(get_size() - 1);
 
 		delete get_node_tail();
 
@@ -185,7 +187,7 @@ void Doubly_linked_list::remove_node(const int position) {
 
 	if(position == 0) {remove_node_head();}
 
-	else if(position == get_size() - 1) {remove_node_tail();}
+	else if(position == get_size()) {remove_node_tail();}
 
 	else {
 		
