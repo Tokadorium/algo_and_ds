@@ -101,7 +101,24 @@ int* Doubly_linked_list::add_node_head(const int data) {
 
 		return &m_head->data;
 
+	} else if(m_head->next) {
+		
+		node* new_head;
+
+		new_head = new node;
+
+		m_head->prev = new_head;
+
+		new_head->next = m_head;
+		new_head->data = data;
+		new_head->prev = nullptr;
+
+		m_head = new_head;
+
+		return &m_head->data;
+	
 	} else {return nullptr;}
+
 }
 
 int* Doubly_linked_list::add_node_tail(const int data) {
@@ -136,16 +153,16 @@ int* Doubly_linked_list::add_node(const int position, const int data) {
 		node* current;
 		node* new_node;
 
-		current = get_node(position);
+		current = get_node(position - 1);
 
 		new_node = new node;
 
-		current->next->prev = new_node;
-		current->next = new_node;
-		
 		new_node->prev = current;
 		new_node->data = data;
 		new_node->next = current->next;	
+
+		current->next->prev = new_node;
+		current->next = new_node;
 
 		return &new_node->data;
 	}
