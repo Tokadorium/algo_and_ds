@@ -13,6 +13,8 @@ class Doubly_linked_list {
 
 		node* m_head;
 
+	protected:
+
 		node* get_node(const int position) const;
 		node* get_node_tail() const;
 
