@@ -57,7 +57,7 @@ int* Doubly_linked_list::get_value(const int position) const {return &get_node(p
 
 node* Doubly_linked_list::get_node(const int position) const {
 
-	if(m_head) {
+	if(position >= 0 && position < get_size()) {
 
 		node* current {m_head};
 
@@ -70,22 +70,6 @@ node* Doubly_linked_list::get_node(const int position) const {
 
 		return current;
 
-	} else {return nullptr;}
-}
-
-node* Doubly_linked_list::get_node_tail() const {
-
-	if(m_head) {
-
-		node* current {m_head};
-
-		while(current->next) {
-
-			current = current->next;
-		}
-
-		return current;
-	
 	} else {return nullptr;}
 }
 		
@@ -101,24 +85,7 @@ int* Doubly_linked_list::add_node_head(const int data) {
 
 		return &m_head->data;
 
-	} else if(m_head->next) {
-		
-		node* new_head;
-
-		new_head = new node;
-
-		m_head->prev = new_head;
-
-		new_head->next = m_head;
-		new_head->data = data;
-		new_head->prev = nullptr;
-
-		m_head = new_head;
-
-		return &m_head->data;
-	
 	} else {return nullptr;}
-
 }
 
 int* Doubly_linked_list::add_node_tail(const int data) {
@@ -128,7 +95,7 @@ int* Doubly_linked_list::add_node_tail(const int data) {
 		node* last_node;
 		node* new_node;
 
-		last_node = get_node_tail();
+		last_node = get_node(get_size());
 		
 		new_node = new node;
 		last_node->next = new_node;
@@ -194,7 +161,7 @@ void Doubly_linked_list::remove_node_tail() {
 		node* new_last_node;
 		new_last_node = get_node(get_size() - 1);
 
-		delete get_node_tail();
+		delete get_node(get_size());
 
 		new_last_node->next = nullptr;
 	}

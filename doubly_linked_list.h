@@ -16,7 +16,6 @@ class Doubly_linked_list {
 	protected:
 
 		node* get_node(const int position) const;
-		node* get_node_tail() const;
 
 		int* add_node_head(const int data);
 		int* add_node_tail(const int data);
