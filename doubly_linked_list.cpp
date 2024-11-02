@@ -172,9 +172,9 @@ void Doubly_linked_list::remove_node_tail() {
 
 	if(m_head) {
 		node* new_last_node;
-		new_last_node = get_node(get_size() - 1);
+		new_last_node = get_node(get_size() - 2);
 
-		delete get_node(get_size());
+		delete get_node(get_size() - 1);
 
 		new_last_node->next = nullptr;
 	}
