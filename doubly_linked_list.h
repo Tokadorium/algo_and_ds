@@ -13,13 +13,18 @@ class Doubly_linked_list {
 
 		node* m_head;
 
-		node* get_node(const int position) const;
-
 		int* add_node_head(const int data);
 		int* add_node_tail(const int data);
 
 		void remove_node_head();
 		void remove_node_tail();
+
+	protected:
+
+		node* get_node(const int position) const;
+		int* add_node(const int position, const int data);
+		
+		void remove_node(const int position);
 
 	public:
 
@@ -29,8 +34,6 @@ class Doubly_linked_list {
 		void print() const;
 		int get_size() const;
 		int* get_value(const int position) const;
-		int* add_node(const int position, const int data);
-		void remove_node(const int position);
 };
 
 #endif // DOUBLY_LINKED_LIST_H

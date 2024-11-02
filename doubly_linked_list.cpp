@@ -184,7 +184,7 @@ void Doubly_linked_list::remove_node(const int position) {
 
 	if(position == 0) {remove_node_head();}
 
-	else if(position == get_size()) {remove_node_tail();}
+	else if(position == get_size() - 1) {remove_node_tail();}
 
 	else {
 		
