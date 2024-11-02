@@ -37,12 +37,12 @@ void Doubly_linked_list::print() const {
 
 int Doubly_linked_list::get_size() const {
 
-	if(m_head) {
+	if(m_head) { 								// if node exist then size is at least 1
 
 		int size {1};
 		node* current {m_head};
 
-		while(current->next) {
+		while(current->next) {  				// size will increment only if there is next node
 
 			current = current->next;
 			size++;
@@ -50,7 +50,7 @@ int Doubly_linked_list::get_size() const {
 
 		return size;
 
-	} else {return 0;}
+	} else {return 0;} 							// if m_head is null then size is 0
 }
 
 int* Doubly_linked_list::get_value(const int position) const {return &get_node(position)->data;}
@@ -61,9 +61,8 @@ node* Doubly_linked_list::get_node(const int position) const {
 
 		node* current {m_head};
 
-		for(int i = 0; i < position; i++) {
-
-			if(!current->next) {return nullptr;}
+		for(int i = 1; i <= position; i++) { 	// if position = 0 then return current,
+												// else step into loop
 
 			current = current->next;
 		}
@@ -85,6 +84,20 @@ int* Doubly_linked_list::add_node_head(const int data) {
 
 		return &m_head->data;
 
+	} else if(m_head->next) {
+
+		node* new_head {new node};
+		
+		new_head->prev = nullptr;
+		new_head->data = data;
+		new_head->next = m_head;
+
+		m_head->prev = new_head;
+
+		m_head = new_head;
+
+		return &new_head->data;
+
 	} else {return nullptr;}
 }
 
@@ -95,7 +108,7 @@ int* Doubly_linked_list::add_node_tail(const int data) {
 		node* last_node;
 		node* new_node;
 
-		last_node = get_node(get_size());
+		last_node = get_node(get_size() - 1);
 		
 		new_node = new node;
 		last_node->next = new_node;
