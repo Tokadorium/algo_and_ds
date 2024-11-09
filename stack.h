@@ -8,7 +8,7 @@ class Stack : protected Doubly_linked_list {
 	public:
 
 		int* push(const int data);
-		int pop();
+		int* pop();
 		using Doubly_linked_list::print;
 };
 

@@ -17,4 +17,19 @@ int main() {
 	stack1.pop();
 
 	stack1.print();
+
+	std::cout << "Start loop:" << std::endl;
+
+	for(int i = 0; i < 10; i++) {
+
+		std::cout << "i = " << i << std::endl;
+
+		stack1.pop();
+
+		stack1.print();
+	}
+
+	stack1.print();
+
+	std::cout << "end" << std::endl;
 }
