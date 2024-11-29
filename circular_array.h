@@ -5,28 +5,26 @@ class Circular_array {
 
 	private:
 
-		int* m_table;
-		int max_size;
-		int current_size;
+		int* m_array;
+		int m_size;
+		int m_front;
+		int m_rear;
 
-		int* insert_at_begining();
-		int* insert_at_end();
-
-		int* remove_from_begining();
-		int* remove_from_end();
+		bool is_empty();
+		bool is_full();
 
 	public:
 
-		Circular_array(int max_size);
+		// Constructors
+		Circular_array(int size);
 		~Circular_array();
 
-		int get_current_size();
+		// Methods
+		int* add_element();
+		int* remove_element();
 
-		void print();
-		void peek(int position);
-
-		int* insert_at_position(int position);
-		int* remove_from_position(int position);
+		int get_size();
+		int print();
 };
 
 #endif // CIRCULAR_ARRAY_H

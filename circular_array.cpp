@@ -1,45 +1,38 @@
 #include <iostream>
 #include "circular_array.h"
 
-Circular_array::Circular_array(int size) {m_table = new int[size];}
+// Private
+bool Circular_array::is_empty() {
+
+	return (m_rear == -1 && m_front == -1) ? true : false;
+}
+
+bool Circular_array::is_full() {
+
+	return ((m_rear + 1) % m_size) == m_front ? true : false;
+}
+
+// Constructors
+Circular_array::Circular_array(int size) {
+
+	if(size < 1) {return;}
+
+	if(!(m_array = new int[size])) {return;}
+	
+	m_size = size;
+	m_front = -1;
+	m_rear = -1;
+}
 
 Circular_array::~Circular_array() {
 
-if(m_table) {delete m_table;}
-
+	if(m_array) {delete m_array;}
 }
 
+// Public
+// Methods
+int* Circular_array::add_element();
+int* Circular_array::remove_element();
 
-int* Circular_array::insert_at_begining();
-int* Circular_array::insert_at_end();
-
-int* Circular_array::remove_from_begining();
-int* Circular_array::remove_from_end();
-
-
-int Circular_array::get_current_size() {return current_size;}
-
-void Circular_array::print() {
-
-	for(int i = 0; i < current_size; i++) {
-
-		std::cout << *(m_table + i) << " ";
-	}
-
-	std::cout << std::endl;
-}
-
-void Circular_array::peek(int position) {
-
-	if(position > 0 && position < current_size) {
-
-		std::cout << *(m_table + position) << std::endl;
-
-	} else {
-
-		std::cerr << "Out of bounds" << std::endl;
-	}
-}
-
-int* Circular_array::insert_at_position(int position);
-int* Circular_array::remove_from_position(int position);
+int Circular_array::get_size();
+int Circular_array::print();
