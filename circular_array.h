@@ -6,7 +6,8 @@ class Circular_array {
 	private:
 
 		int* m_array;
-		int m_size;
+		int m_size_current;
+		int m_size_max;
 		int m_front;
 		int m_rear;
 
@@ -20,7 +21,7 @@ class Circular_array {
 		~Circular_array();
 
 		// Methods
-		int* add_element();
+		int* add_element(int data);
 		int* remove_element();
 
 		int get_size();
