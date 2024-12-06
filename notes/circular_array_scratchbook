@@ -1,0 +1,64 @@
+This is my design
+
+add_element
+
+if adding first element
+
+	[front++] = data
+	rear++
+
+if adding n-th element
+
+	if adding in front
+
+		if array is full
+
+			if we want to overwrite last element
+
+				[front++] = data
+				rear++
+
+			if we dont want to overwrite last element
+
+				return
+
+		if array is not full
+
+			[front++] = data
+
+	if adding in back
+
+		if array is full
+
+			[rear--] = data
+			front--
+
+		if array is not full
+
+			[rear--] = data
+
+	if adding in the middle (take desired index as a parameter)
+
+		if array is full
+
+			i dont care about that throw error or smth
+
+		if array is not full
+
+			if rear is the closer index
+
+				for i equal to (rear - 1) until i < desired index, i++
+
+					[i] = [rear + i]
+
+				rear--
+				[desired index] = data
+
+			if front is the closer index
+
+				for i equal to (front + 1) until i > desired index, i++
+
+					[i] = [front - i]
+
+				front++
+				[desired index] = data
