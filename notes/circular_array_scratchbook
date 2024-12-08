@@ -56,7 +56,7 @@ if adding n-th element
 
 			if front is the closer index
 
-				for i equal to (front + 1) until i > desired index, i++
+				for i equal to (front + 1) until i > desired index, i--
 
 					[i] = [front - i]
 
